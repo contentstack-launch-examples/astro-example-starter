@@ -1,0 +1,12 @@
+---
+import Layout from '../layouts/Layout.astro';
+const currentTime = new Date().toLocaleString();
+---
+
+<Layout>
+  <section>
+    <h1>SSR Test Page</h1>
+    <p>This page is rendered on the server for every request.</p>
+    <p>Current server time: {currentTime}</p>
+  </section>
+</Layout>
