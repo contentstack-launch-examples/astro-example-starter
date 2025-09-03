@@ -1,11 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
-const currentTime = new Date().toLocaleString();
+let serverTime = 'Loading...';
 
-// Set headers to bypass CDN caching and force fresh SSR
-Astro.response.headers.set('Cache-Control', 'private, no-store, must-revalidate');
-Astro.response.headers.set('Pragma', 'no-cache');
-Astro.response.headers.set('Expires', '0');
+// Fetch the live SSR timestamp from the API route
+try {
+  const res = await fetch('/api/ssrtime');
+  const data = await res.json();
+  serverTime = data.time;
+} catch (err) {
+  serverTime = 'Error fetching time';
+}
 ---
 
 <style>
@@ -26,11 +30,6 @@ Astro.response.headers.set('Expires', '0');
     font-size: 3rem;
     margin-bottom: 1rem;
     text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
-  }
-
-  .ssr-page p {
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
   }
 
   .card {
@@ -61,8 +60,8 @@ Astro.response.headers.set('Expires', '0');
   <div class="ssr-page">
     <h1>SSR Test Page</h1>
     <div class="card">
-      <p>This page is rendered on the server for every request.</p>
-      <p>Current server time: {currentTime}</p>
+      <p>This content is rendered fresh on every request via the API.</p>
+      <p>Current server time: {serverTime}</p>
     </div>
     <a href="/">← Back to Home</a>
   </div>
