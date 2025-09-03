@@ -1,68 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
-let serverTime = 'Loading...';
-
-// Fetch the live SSR timestamp from the API route
-try {
-  const res = await fetch('/api/ssrtime');
-  const data = await res.json();
-  serverTime = data.time;
-} catch (err) {
-  serverTime = 'Error fetching time';
-}
+const currentTime = new Date().toLocaleString();
 ---
 
-<style>
-  .ssr-page {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 2rem;
-    background: linear-gradient(135deg, #6b73ff, #000dff);
-    color: white;
-    font-family: Arial, sans-serif;
-  }
-
-  .ssr-page h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
-  }
-
-  .card {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 1.5rem 2rem;
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    margin-top: 2rem;
-    backdrop-filter: blur(10px);
-  }
-
-  a {
-    display: inline-block;
-    margin-top: 1.5rem;
-    text-decoration: none;
-    color: #ffd700;
-    font-weight: bold;
-    transition: 0.3s;
-  }
-
-  a:hover {
-    color: #fff;
-    text-shadow: 0 0 8px #ffd700;
-  }
-</style>
-
 <Layout>
-  <div class="ssr-page">
+  <section>
     <h1>SSR Test Page</h1>
-    <div class="card">
-      <p>This content is rendered fresh on every request via the API.</p>
-      <p>Current server time: {serverTime}</p>
-    </div>
-    <a href="/">← Back to Home</a>
-  </div>
+    <p>This page is rendered on the server for every request.</p>
+    <p>Current server time: {currentTime}</p>
+  </section>
 </Layout>
