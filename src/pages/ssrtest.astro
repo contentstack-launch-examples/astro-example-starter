@@ -2,7 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 const currentTime = new Date().toLocaleString();
 
-Astro.response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+// Set headers to bypass CDN caching and force fresh SSR
+Astro.response.headers.set('Cache-Control', 'private, no-store, must-revalidate');
 Astro.response.headers.set('Pragma', 'no-cache');
 Astro.response.headers.set('Expires', '0');
 ---
@@ -45,7 +46,7 @@ Astro.response.headers.set('Expires', '0');
     display: inline-block;
     margin-top: 1.5rem;
     text-decoration: none;
-    color: #7be4ef;
+    color: #ffd700;
     font-weight: bold;
     transition: 0.3s;
   }
