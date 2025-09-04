@@ -2,7 +2,14 @@
 import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 
-export const prerender = true; 
+export const prerender = true;
+
+const timestamp = new Date().toISOString();
+
+Astro.response.headers.set("Cache-Control", "no-store, must-revalidate");
+Astro.response.headers.set("Pragma", "no-cache");
+Astro.response.headers.set("Expires", "0");
+Astro.response.headers.set("X-Timestamp", timestamp);
 ---
 
 <Layout>
@@ -10,6 +17,7 @@ export const prerender = true;
   
   <div style="padding: 2rem; text-align: center;">
     <h2>Launch SSR Testing</h2>
+    <p style="color: #888;">Request timestamp: {timestamp}</p>
     
     <div style="margin-bottom: 2rem;">
       <div style="display: flex; gap: 1rem; justify-content: center; margin: 1rem 0; flex-wrap: wrap;">
