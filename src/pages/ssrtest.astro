@@ -1,16 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-// Add cache-control headers to force fresh responses
 Astro.response.headers.set("Cache-Control", "no-store, must-revalidate");
 Astro.response.headers.set("Pragma", "no-cache");
 Astro.response.headers.set("Expires", "0");
 
-// This runs on the server for each request
 const currentTime = new Date().toLocaleString();
 const randomNumber = Math.floor(Math.random() * 1000);
 
-// Access request information (available in SSR mode)
 const userAgent = Astro.request.headers.get('user-agent') || 'Unknown';
 const requestUrl = Astro.url.href;
 const requestMethod = Astro.request.method;
@@ -26,9 +23,6 @@ const requestMethod = Astro.request.method;
       <ul>
         <li><strong>Current server time:</strong> {currentTime}</li>
         <li><strong>Random number:</strong> {randomNumber}</li>
-        <li><strong>User-Agent:</strong> {userAgent}</li>
-        <li><strong>Request URL:</strong> {requestUrl}</li>
-        <li><strong>Request Method:</strong> {requestMethod}</li>
       </ul>
     </div>
 
