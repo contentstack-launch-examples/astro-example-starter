@@ -6,14 +6,15 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "start": "node ./dist/server/entry.mjs",
+    "start": "node server.mjs",
     "astro": "astro"
   },
   "dependencies": {
     "@astrojs/node": "^9.4.3",
     "@contentstack/live-preview-utils": "^4.0.1",
     "astro": "^5.13.5",
-    "contentstack": "^3.26.2"
+    "contentstack": "^3.26.2",
+    "express": "^4.21.1"
   },
   "description": "```sh npm create astro@latest -- --template basics ```",
   "main": "index.js",
