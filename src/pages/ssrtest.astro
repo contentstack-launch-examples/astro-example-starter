@@ -1,12 +1,32 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+// This runs on the server for each request
 const currentTime = new Date().toLocaleString();
+const requestTime = Date.now();
+const randomNumber = Math.floor(Math.random() * 1000);
+
+// Access request information (available in SSR mode)
+const userAgent = Astro.request.headers.get('user-agent') || 'Unknown';
+const requestUrl = Astro.url.href;
+const requestMethod = Astro.request.method;
 ---
 
 <Layout>
-  <section>
-    <h1>SSR Test Page</h1>
-    <p>This page is rendered on the server for every request.</p>
-    <p>Current server time: {currentTime}</p>
+  <section style="padding: 2rem; font-family: sans-serif;">
+    <h1>Astro SSR Test Page</h1>
+    <p>This page is rendered on the server for every request!</p>
+    
+    <div style="background: #f0f8ff; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+      <h2>Server-Side Data (Generated per request):</h2>
+      <ul>
+        <li><strong>Current server time:</strong> {currentTime}</li>
+        <li><strong>Random number:</strong> {randomNumber}</li>
+      </ul>
+    </div>
+    <p>
+      <a href="/">← Back to Home</a> | 
+      <a href="/isr">ISR Test →</a>
+    </p>
   </section>
 </Layout>
