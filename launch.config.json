@@ -1,0 +1,9 @@
+{
+  "framework": "astro",
+  "buildCommand": "npm run build",
+  "outputDirectory": ".",
+  "startCommand": "npm start",
+  "nodeVersion": "18.x",
+  "runtime": "nodejs",
+  "serverSideRendering": true
+}
