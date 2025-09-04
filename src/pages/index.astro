@@ -10,14 +10,30 @@ import Layout from '../layouts/Layout.astro';
   <Welcome />
   
   <div style="padding: 2rem; text-align: center;">
-    <h2>Launch SSR Testing</h2>    
-    <div style="display: flex; gap: 1rem; justify-content: center; margin: 2rem 0; flex-wrap: wrap;">
-      <a href="/ssrtest" style="display: inline-block; padding: 1rem 2rem; background: #4f46e5; color: white; text-decoration: none; border-radius: 8px; font-weight: bold;">
-        SSR Test Page
-      </a>
-      <a href="/isr" style="display: inline-block; padding: 1rem 2rem; background: #059669; color: white; text-decoration: none; border-radius: 8px; font-weight: bold;">
-        ISR Test Page
-      </a>
+    <h2>Launch SSR Testing</h2>
+    
+    <div style="margin-bottom: 2rem;">
+      <h3>Basic SSR Tests:</h3>
+      <div style="display: flex; gap: 1rem; justify-content: center; margin: 1rem 0; flex-wrap: wrap;">
+        <a href="/ssrtest" style="display: inline-block; padding: 1rem 2rem; background: #4f46e5; color: white; text-decoration: none; border-radius: 8px; font-weight: bold;">
+          Basic SSR Test
+        </a>
+        <a href="/isr" style="display: inline-block; padding: 1rem 2rem; background: #059669; color: white; text-decoration: none; border-radius: 8px; font-weight: bold;">
+          ISR Test Page
+        </a>
+      </div>
+    </div>
+
+    <div style="margin-bottom: 2rem;">
+      <h3>Dynamic SSR Tests:</h3>
+      <div style="display: flex; gap: 1rem; justify-content: center; margin: 1rem 0; flex-wrap: wrap;">
+        <a href="/blog/hello-world" style="display: inline-block; padding: 1rem 2rem; background: #dc2626; color: white; text-decoration: none; border-radius: 8px; font-weight: bold;">
+          Blog: Hello World
+        </a>
+        <a href="/blog/ssr-test" style="display: inline-block; padding: 1rem 2rem; background: #dc2626; color: white; text-decoration: none; border-radius: 8px; font-weight: bold;">
+          Blog: SSR Test
+        </a>
+      </div>
     </div>
   </div>
 </Layout>
