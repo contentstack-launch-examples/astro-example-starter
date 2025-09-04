@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/serverside",
+      "destination": "/ssrtest",
+      "type": 301
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/ondemand",
+      "destination": "/isrtest"
+    }
+  ]
+}
