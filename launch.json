@@ -3,7 +3,7 @@
     {
       "source": "/serverside",
       "destination": "/ssrtest",
-      "type": 301
+      "statusCode": 308
     }
   ],
   "rewrites": [
