@@ -1,0 +1,25 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+// Add ISR headers
+Astro.response.headers.set(
+  "Cache-Control",
+  "public, s-maxage=40, stale-while-revalidate=60"
+);
+
+// Add timestamp for testing
+const now = new Date().toLocaleTimeString();
+---
+
+<Layout>
+  <section style="padding: 2rem; font-family: sans-serif;">
+    <h1>ISR Test Page</h1>
+    <p>This page was generated at: <strong>{now}</strong></p>
+    <p>
+      Cache-Control: <code>public, s-maxage=40, stale-while-revalidate=60</code>
+    </p>
+    <p>
+      Refresh manually with automation trigger → <code>/api/revalidate</code>
+    </p>
+  </section>
+</Layout>
