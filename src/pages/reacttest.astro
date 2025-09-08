@@ -1,0 +1,16 @@
+---
+import Counter from "../components/Counter";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Astro React Test</title>
+  </head>
+  <body style="font-family: sans-serif; padding: 2rem;">
+    <h1>React Component in Astro</h1>
+    <p>This React component is running on the client.</p>
+
+    <Counter client:load />
+  </body>
+</html>
