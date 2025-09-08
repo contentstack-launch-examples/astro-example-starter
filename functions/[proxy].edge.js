@@ -1,13 +1,21 @@
-export default function handler(request, context) {
-  const parsedUrl = new URL(request.url);
-  const route = parsedUrl.pathname;
+export default async function handler(request, context) {
+  const url = new URL(request.url);
 
-  if (route === '/appliances') {
-    const response = {
-      time: new Date(),
-    };
-    return new Response(JSON.stringify(response));
+  if (url.pathname === "/appliances") {
+    return new Response(
+      JSON.stringify({
+        message: "Edge Function executed!",
+        time: new Date().toISOString(),
+      }),
+      {
+        headers: {
+          "Content-Type": "application/json",
+          "Cache-Control": "no-store",
+        },
+      }
+    );
   }
 
+  // fallback to origin
   return fetch(request);
 }
