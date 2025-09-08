@@ -1,17 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
-// Generate dynamic values so you can see cache effects
 const currentTime = new Date().toLocaleString();
 const randomNumber = Math.floor(Math.random() * 1000);
 
-// Set caching headers
 Astro.response.headers.set(
   "Cache-Control",
   "public, s-maxage=60, stale-while-revalidate=30"
 );
 
-// Single cache tag
 Astro.response.headers.set("x-cache-tags", "cachetest");
 ---
 
@@ -28,7 +25,6 @@ Astro.response.headers.set("x-cache-tags", "cachetest");
         <li><strong>Cache Tag:</strong> cachetest</li>
       </ul>
     </div>
-
     <p><a href="/">← Back Home</a></p>
   </section>
 </Layout>

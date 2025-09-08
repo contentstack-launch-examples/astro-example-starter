@@ -1,0 +1,13 @@
+---
+const res = await fetch(Astro.url.origin + "/api/product");
+const product = await res.json();
+---
+
+<html>
+  <head><title>Random Product</title></head>
+  <body>
+    <h1>{product.title}</h1>
+    <p>💰 Price: ${product.price}</p>
+    <img src={product.image} alt={product.title} width="200" />
+  </body>
+</html>
