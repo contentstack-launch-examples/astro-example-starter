@@ -1,0 +1,56 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+Astro.response.headers.set("Cache-Control", "no-store, must-revalidate");
+Astro.response.headers.set("Pragma", "no-cache");
+Astro.response.headers.set("Expires", "0");
+
+const currentTime = new Date().toLocaleString();
+const randomNumber = Math.floor(Math.random() * 1000);
+---
+
+<Layout>
+  <section 
+    style="
+      padding: 3rem 2rem; 
+      font-family: system-ui, sans-serif; 
+      max-width: 800px; 
+      margin: auto; 
+      text-align: center;
+    "
+  >
+    <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem;">✨ Astro SSR Demo</h1>
+    <p style="color: #247cf0; margin-bottom: 2rem; font-size: 1.1rem;">
+      This page is freshly rendered on the server for every request.
+    </p>
+
+    <div 
+      style="
+        background: linear-gradient(135deg, #7dd3fc, #818cf8, #c084fc); 
+        padding: 2rem; 
+        border-radius: 16px; 
+        color: white; 
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      "
+    >
+      <h2 style="margin-bottom: 1rem; font-size: 1.5rem;">⚡ Live Server Data</h2>
+      <ul style="list-style: none; padding: 0; margin: 0; font-size: 1.1rem;">
+        <li style="margin-bottom: 0.75rem;">
+          <strong>🕒 Current server time:</strong><br /> {currentTime}
+        </li>
+        <li>
+          <strong>🎲 Random number:</strong><br /> {randomNumber}
+        </li>
+      </ul>
+    </div>
+
+    <p style="margin-top: 2rem;">
+      <a 
+        href="/" 
+        style="color: #fbbf24; text-decoration: none; font-weight: 600;"
+      >
+        ← Back to Home
+      </a>
+    </p>
+  </section>
+</Layout>

@@ -1,0 +1,42 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const currentTime = new Date().toLocaleString();
+const randomNumber = Math.floor(Math.random() * 1000);
+
+Astro.response.headers.set(
+  "Cache-Control",
+  "public, s-maxage=60, stale-while-revalidate=30"
+);
+
+Astro.response.headers.set("x-cache-tags", "cachetest");
+---
+
+<Layout>
+  <section style="padding: 3rem 2rem; font-family: system-ui, sans-serif; max-width: 800px; margin: auto;">
+    <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem; text-align: center;">📦 Cache Purge Demo</h1>
+    <p style="text-align: center; color: #555; margin-bottom: 2rem; font-size: 1.1rem;">
+      This page demonstrates <strong>Cache Purge</strong> using CacheTags's.
+    </p>
+
+    <div style="
+      background: #f0f8ff; 
+      padding: 2rem; 
+      border-radius: 16px; 
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1); 
+      margin-bottom: 2rem;
+    ">
+      <h2 style="margin-bottom: 1rem; color: #1e40af;">Server Data</h2>
+      <ul style="list-style: none; padding: 0; line-height: 1.8; font-size: 1.05rem;">
+        <li><strong>⏰ Current server time:</strong> {currentTime}</li>
+        <li><strong>🎲 Random number:</strong> {randomNumber}</li>
+        <li><strong>🏷️ Cache Tag:</strong> cachetest</li>
+        <li><strong>🔄 Page Refresh:</strong> 60sec</li>
+      </ul>
+    </div>
+
+    <p style="text-align: center; margin-top: 1rem;">
+      <a href="/" style="color: #2563eb; font-weight: 600; text-decoration: none;">← Back Home</a>
+    </p>
+  </section>
+</Layout>

@@ -1,0 +1,83 @@
+---
+Astro.response.headers.set("Cache-Control", "no-store, must-revalidate");
+Astro.response.headers.set("Pragma", "no-cache");
+Astro.response.headers.set("Expires", "0");
+
+type Product = {
+  id: number;
+  title: string;
+  price: number;
+  description: string;
+  category: string;
+  image: string;
+};
+
+const res = await fetch("https://fakestoreapi.com/products");
+const data: Product[] = await res.json();
+
+const randomIndex = Math.floor(Math.random() * data.length);
+const randomProduct = data[randomIndex];
+
+const randomNum = Math.floor(Math.random() * 1000) + 1;
+
+const product = {
+  ...randomProduct,
+  randomNum,
+};
+---
+
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Random Product Demo</title>
+  </head>
+  <body 
+    style="
+      padding: 3rem 2rem; 
+      font-family: system-ui, sans-serif; 
+      max-width: 800px; 
+      margin: auto; 
+      text-align: center;
+    "
+  >
+    <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem;">🛒 Random Product Demo</h1>
+    <p style="color: #555; margin-bottom: 2rem; font-size: 1.1rem;">
+      This page fetches a <strong>random product</strong> from an API on each server render.
+    </p>
+
+    <div 
+      style="
+        background: linear-gradient(135deg, #fbbf24, #f87171, #ef4444); 
+        padding: 2rem; 
+        border-radius: 16px; 
+        color: white; 
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15); 
+        max-width: 500px; 
+        margin: auto;
+      "
+    >
+      <!-- Image wrapper -->
+      <div style="background: white; border-radius: 12px; padding: 1rem; margin-bottom: 1.5rem;">
+        <img 
+          src={product.image} 
+          alt={product.title} 
+          style="width: 100%; border-radius: 8px; object-fit: contain; max-height: 300px;" 
+        />
+      </div>
+
+      <h2 style="margin-bottom: 0.75rem;">{product.title}</h2>
+      <p style="margin-bottom: 0.5rem;"><strong>💲 Price:</strong> ${product.price}</p>
+      <p style="margin-bottom: 0.5rem;"><strong>🏷️ Category:</strong> {product.category}</p>
+      <p><strong>🎲 Random Number:</strong> {product.randomNum}</p>
+    </div>
+
+    <p style="margin-top: 2rem;">
+      <a 
+        href="/" 
+        style="color: #2563eb; text-decoration: none; font-weight: 600;"
+      >
+        ← Back to Home
+      </a>
+    </p>
+  </body>
+</html>

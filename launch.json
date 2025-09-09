@@ -2,14 +2,14 @@
   "redirects": [
     {
       "source": "/serverside",
-      "destination": "/ssrtest",
+      "destination": "/ssr-demo",
       "statusCode": 308
     }
   ],
   "rewrites": [
     {
       "source": "/ondemand",
-      "destination": "/isrtest"
+      "destination": "/isr-demo"
     }
   ]
 }
