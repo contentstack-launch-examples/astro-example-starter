@@ -1,0 +1,31 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const buildTime = new Date().toLocaleString();
+const randomNumber = Math.floor(Math.random() * 1000);
+---
+
+<Layout>
+  <section style="padding: 3rem 2rem; font-family: system-ui, sans-serif; max-width: 800px; margin: auto;">
+    <h1 style="text-align: center; font-size: 2.5rem; margin-bottom: 1rem;">🛠️ SSG Demo Page</h1>
+    <p style="text-align: center; color: #555; margin-bottom: 2rem;">
+      This page is generated at <strong>build time</strong> using Astro’s Static Site Generation.
+    </p>
+
+    <div style="
+      background: #fef3c7;
+      padding: 2rem; 
+      border-radius: 16px; 
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1); 
+      text-align: center;
+    ">
+      <h2 style="margin-bottom: 1rem; color: #b45309;">Build-Time Info</h2>
+      <p><strong>Build Time:</strong> {buildTime}</p>
+      <p><strong>Random Number:</strong> {randomNumber}</p>
+    </div>
+
+    <p style="text-align: center; margin-top: 2rem;">
+      <a href="/" style="color: #2563eb; font-weight: 600; text-decoration: none;">← Back Home</a>
+    </p>
+  </section>
+</Layout>
