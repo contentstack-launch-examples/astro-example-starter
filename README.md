@@ -12,7 +12,7 @@ This repository showcases:
 - **API Routes** - Server-side API endpoints
 - **Cache Control** - Different caching strategies and cache purging
 
-## ��️ Project Structure
+## � Project Structure
 
 ```text
 /
