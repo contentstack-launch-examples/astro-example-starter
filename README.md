@@ -106,6 +106,18 @@ export default defineConfig({
 npm run build
 npm start
 ```
+
+## Deployment on Launch
+
+When deploying this project on **Launch**, use the following configuration:
+
+- **Framework Preset :** `Other`  
+- **Output Directory :** `.`  
+- **Build Command:** `npm run build`  
+- **Server Command:** `npm run start`
+
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/contentstack-launch-examples/contentstack-nuxt-example-starter/blob/main/LICENSE) file for details.
+
+
