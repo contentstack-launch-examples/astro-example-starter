@@ -50,7 +50,7 @@ This repository showcases:
 
 ### Prerequisites
 
-- Node.js
+- Node.js 22.23.4 or later (required by Astro 7.4)
 - npm or yarn
 
 ### Installation
