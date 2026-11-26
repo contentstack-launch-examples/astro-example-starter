@@ -40,17 +40,17 @@ This repository showcases:
 
 ## 🛠️ Tech Stack
 
-- **Astro** ^5.13.5 - The web framework
+- **Astro** ^7.4.7 - The web framework
 - **React** ^19.1.1 - UI component library
-- **@astrojs/node** ^9.4.3 - Node.js adapter for server deployment
-- **@astrojs/react** ^4.3.0 - React integration
+- **@astrojs/node** ^11.1.12 - Node.js adapter for server deployment
+- **@astrojs/react** ^6.0.4 - React integration
 - **TypeScript** - Type safety and development experience
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 
-- Node.js
+- Node.js 22.23.4 or later (required by Astro 7.4)
 - npm or yarn
 
 ### Installation
